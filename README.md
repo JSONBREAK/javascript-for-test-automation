@@ -175,6 +175,8 @@ Isolation is required for deterministic automation.
 Work only in:
 - 01-core
 - 02-immutability
+- 03-data-handling
+- checklist-after-async
 
 Before moving to async, you must understand test isolation.
 

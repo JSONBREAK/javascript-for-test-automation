@@ -2,127 +2,70 @@
 
 ## Purpose
 
-This repository builds JavaScript stability required for reliable test automation.
 
-Focus: predictability, immutability, and safe data transformation.
+This repository focuses on building a strong JavaScript foundation for reliable and maintainable test automation.
 
-It is designed to prevent common automation mistakes caused by weak JavaScript fundamentals.
+It reflects a structured learning path toward predictable, immutable, and safe data handling practices used in production-grade automation.
 
-This is not a tutorial.  
-It mirrors real-world production structure.
 
----
+**Key Focus:** Predictability, immutability, and safe data transformation.
 
-## Why JavaScript Bugs Break Automation
-
-- Shared state mutation
-- Hidden reference changes
-- Async timing issues
-- Poor error handling
+It is designed to prevent common automation failures caused by weak programming fundamentals. This is not a basic tutorial—it mirrors real-world production structures used in modern automation frameworks.
 
 ---
 
-## Required Knowledge Before Automation
+## Why JavaScript Proficiency Matters in Automation
+Weak fundamentals often lead to "Flaky Tests" through:
 
-### Core JavaScript
-
-**Variables & Scope**
-- let vs const
-- Block scope
-- Primitive vs reference types
-- Reassignment rules
-- Mutation vs immutability
-
-**Data Types**
-- string, number, boolean
-- null vs undefined
-- object, array
-- typeof
-
-**Functions**
-- Function declarations
-- Arrow functions
-- Parameters / default parameters
-- Return / early return
-- Pure functions
-
-**Control Flow**
-- if / else, switch
-- for, for-of, while
-- break / continue
+- **Shared state mutation:** Unexpected changes to test data across cases
+- **Hidden reference changes:** Modifying objects without realizing they are shared
+- **Asynchronous race conditions:** Execution proceeding before asynchronous data is resolved
+- **Poor error handling:** Swallowing errors or not handling them properly
+- **Non-deterministic code:** Output changes based on hidden state or side effects
 
 ---
 
-### Data Handling (Used Daily in Automation)
+## Required Knowledge (Before Automation)
 
-**Array Methods**
-- map()
-- filter()
-- find()
-- some()
-- every()
-- reduce()
+### 1. Core JavaScript
 
-**Object Handling**
-- Dot vs bracket notation
-- Destructuring
-- Spread operator (...)
-- Nested access
-- Optional chaining (?.)
-- Object.keys / values / entries
+- **Variables & Scope:** let vs const, Block scope, and Reassignment rules
+- **Memory Model:** Primitive vs Reference types, and how assignment works
+- **Data Types:** string, number, boolean, null, undefined, object, array
+- **Functions:** Declarations vs Arrow functions, Parameters and default parameters, Return values and early return, Pure functions
+- **Control Flow:** if / else, switch, for, for-of, while, break / continue
 
-**JSON**
-- JSON.parse()
-- JSON.stringify()
+### 2. Data Handling
+- **Array Methods:** map(), filter(), find(), some(), every(), reduce()
+- **Object Handling:** Dot vs bracket notation, Destructuring, Spread operator (...), Nested access, Optional chaining (?.), Object.keys / values / entries
+- **JSON:** JSON.parse(), JSON.stringify() for API testing.
 
----
+### 3. Immutability & Test Isolation
+- **Reference & Identity model:** Primitive vs object, ===, mutation vs reassignment, const
+- **Shallow copy:** {...obj} or [...arr]
+- **Deep copy:** Using structuredClone() (Node 18+) vs. custom deep clone utilities
+- **Avoid shared state in tests:** Each test should start with fresh data
 
-### Immutability Patterns for Automation
+### 4. Debugging & Exception Management
+- **Error Identification:** Distinguishing between ReferenceError, TypeError, and SyntaxError
+- **Resilient Patterns:** Implementing try/catch and throwing meaningful errors.
+- **Root Cause Analysis:** Reading and tracing stack traces effectively.
 
-- Reference & Identity model (primitive vs object, ===, mutation vs reassignment, const-object)
-- Shallow copy
-- Deep copy
-- StructuredClone (Node 18+)
-- Avoid shared state in tests
-- Defensive copying
+### 5. Asynchronous Mastery (After Foundation Is Solid)
+- **Event Loop Mechanics:** Understanding why JS execution might "skip" automation steps
+- **Promises:** Managing states (Pending, Fulfilled, Rejected) for API and UI responses
+- **Async / Await:** Writing readable, sequential automation flows
+- **Concurrency:** Optimizing execution time with Promise.all
 
-**Test Isolation**
-- Test isolation principles
-- Avoid shared mutable test data
-- Do not reuse state between test cases
-- Reset or recreate data per test
+### 6. Test Isolation (Critical for Automation)
+- **Shared State Risks:** Understanding how shared mutable data can cause test interference
+- **beforeEach / beforeAll:** Setting up fresh data for each test case
+- **Deterministic Code:** Ensuring same input always yields same output, with no hidden state or side effects
 
----
-
-### Debug & Error Handling
-
-**Error Types**
-- ReferenceError
-- TypeError
-- SyntaxError
-
-**Error Handling**
-- try / catch
-- throw new Error()
-- Reading stack traces
-
----
-
-### Async (After Foundation Is Solid)
-
-- Promise
-- async / await
-- Promise.all
-- Event loop (conceptual understanding)
-
----
-
-### Node Basics (Before Playwright)
-
-- Module system (import / export)
-- require (concept)
-- process.env
-- Running scripts with Node
+### 7. Node.js Basics (Before Playwright)
+- **Module System:** import / export syntax, CommonJS (require) concept
+- **Environment Variables:** process.env for configuration
+- **Running Scripts:** Using Node to execute JavaScript files
 
 ---
 
@@ -145,8 +88,7 @@ It mirrors real-world production structure.
 - Misunderstanding Promise behavior
 - Comparing objects by reference instead of value
 - Race conditions from async mishandling
-
-- Test cases affecting each other (lack of isolation)
+- Interdependent test cases (Side effects bleeding between tests)
 
 ---
 
@@ -160,33 +102,31 @@ Deterministic means:
 - No external dependencies
 - No mutation of arguments
 
-Enforce it:
-- If your function mutates input, rewrite it.
-- If your logic is not deterministic, simplify it.
-- If you cannot predict output without running it, redesign it.
+Enforcement principles:
+- Functions must not mutate their inputs.
+- Non-deterministic logic must be simplified or redesigned.
+- Output must be predictable without relying on execution order.
 
-If tests influence each other, your code is not isolated.
-Isolation is required for deterministic automation.
+If tests influence each other, isolation has failed.
+Isolation is mandatory for deterministic automation.
+
 
 ---
 
 ## Current Focus
 
-Work only in:
+Current focus areas:
 - 01-core
 - 02-immutability
 - 03-data-handling
 - checklist-after-async
-
-Before moving to async, you must understand test isolation.
-
-**🎯 ก่อนไป Async อ่านก่อน:** [CHECKLIST.md](CHECKLIST.md) เพื่อทดสอบตัวเองว่าพร้อมหรือยัง
-
-Do not move to async until:
-- You can explain mutation clearly
-- You can transform arrays without documentation
-- You can clone and modify objects without mutating originals
-- You can identify error types from stack traces
+- practice-problems (Complete before moving to async to ensure test isolation readiness)
+ 
+Async progression requires:
+- Clear explanation of mutation
+- Confident array transformation
+- Safe cloning and modifying objects 
+- Can identify error types from stack traces
 
 ---
 
@@ -207,7 +147,14 @@ js-qa-automation/
 │   │   ├── 01-array-methods.js
 │   │   └── 02-object-handling.js
 │   └── 04-async/
-│       └── 01-async-await.js       # TODO
+│       ├── 01-event-loop-demo.js    # Visualization of call stack vs task queue
+│       ├── 02-promise-basics.js     # Creating and consuming promises
+│       ├── 03-async-await.js        # Handling sequential automation steps
+│       └── 04-promise-all.js        # Optimizing with parallel execution
+│
+│   └── example/
+│       ├── practice-problems.md    # Example practice problems
+│       └── solve-problems.js       # Example solutions
 ├── docs/                           # Documentation
 │   ├── 01 - Core JavaScript.md
 │   ├── 02 - Data Handling.md
@@ -220,18 +167,18 @@ js-qa-automation/
 
 ## Success Criteria
 
-You are ready for automation when you can:
+Automation engineering readiness requires:
 
-- Explain why mutation causes unpredictable bugs
-- Use map, filter, and find without documentation
-- Transform nested objects safely
-- Debug errors without guessing
-- Write pure helper functions
+- Understanding of reference identity and mutation behavior in JavaScript
+- Deterministic function design (same input → same output)
+- Zero shared mutable state between test cases
+- Immutable data transformation practices
+- Root cause–driven debugging (no guesswork)
+- Reliable test isolation across execution order
 
 ---
 
 ## Mindset
 
-Programmer: Make it work.
+Growth requires moving from writing code that works to designing systems that remain reliable over time.
 
-Automation Engineer: Make it work, maintainable, and resistant to failure.

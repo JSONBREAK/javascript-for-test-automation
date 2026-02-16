@@ -1,4 +1,4 @@
-re check // ข้อ 1: Filter Active Users
+// ข้อ 1: Filter Active Users
 // คำถาม: จาก array ด้านล่าง ให้เขียนโค้ดเพื่อให้ได้เฉพาะชื่อของ user ที่ active เท่านั้น
 
 // const users = [
@@ -21,7 +21,7 @@ function example1() {
     ]
     // active = ture map
     const activeUsers = users.filter(user => user.active).map(user => user.name);
-    console.log(activeUser)
+    console.log(activeUsers) // [ 'Alice', 'Charlie' ]
 }
 
 

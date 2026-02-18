@@ -65,24 +65,17 @@ test('should have active status', () => {
 let x = 10
 let y = x
 
-y = 20
 
 console.log(x)  // 10 (ไม่เปลี่ยน)
-console.log(y)  // 20
-```
 
-**Memory Diagram:**
 
 ```
-x → [10]
-y → [20]  (คนละกล่อง)
-```
+
+
+
 
 ### Reference Types (มี Mutation Risk!)
 
-```javascript
-// ❌ Mutation (อันตราย)
-const obj1 = { name: 'Alice' }
 const obj2 = obj1  // ชี้ที่เดียวกัน!
 
 obj2.name = 'Bob'

@@ -21,6 +21,22 @@ The objective is to prevent common automation instability at the programming lev
 
 ---
 
+
+## Planned Documentation Progression
+
+1. JavaScript behavioral foundations — Core JS concepts for automation reliability
+2. Immutability and state management — Preventing shared state and mutation bugs
+3. Deterministic data transformation — Predictable, testable data handling
+4. Debugging and exception discipline — Root cause analysis and error handling
+5. Asynchronous patterns and concurrency control — Safe async, promises, and parallelism
+6. Test isolation and execution safety — Ensuring tests do not interfere with each other
+7. Node.js runtime and scripting environment — Node.js, modules, env, CLI scripting
+8. Automation anti-pattern analysis — Common mistakes and how to avoid them
+9. CI/CD debugging and stability engineering — Running, debugging, and reporting in CI
+
+
+---
+
 ## 2. Why JavaScript Proficiency Matters in Automation
 
 In many automation projects, instability is not caused by the framework itself, but by weak JavaScript fundamentals.
@@ -252,11 +268,37 @@ Async progression requires:
     │   ├── 02-immutability.md
     │   ├── 03-data-handling.md
     │   ├── 04-debugging-and-errors.md
+    │   ├── 05-Introduction-to-Asynchronous-JavaScript.md
+    │   ├── 06-async-in-test-automation.md
+    │   ├── 07-test-isolation-and-state-management.md
+    │   ├── 08-nodejs-environment-and-scripting.md
+    │   ├── 09-automation-patterns-and-anti-patterns.md
+    │   ├── 10-ci-cd-stability-principles.md
     │   └── isMutation.md
     └── README.md
 ```
 
 Each directory represents a progressive layer toward automation reliability.
+
+---
+
+## Documentation Overview (docs/)
+
+| Document | Key Topics |
+|---|---|
+| 01-javascript-basics.md | Variables, scope, memory, functions |
+| 02-immutability.md | Reference vs copy, mutation, Object.freeze, immutable ops |
+| 03-data-handling.md | JSON, API, mapping/filtering, schema validation |
+| 04-debugging-and-errors.md | try/catch, custom error, stack trace, async errors |
+| 05-Introduction-to-Asynchronous-JavaScript.md | Callback, Promise, async/await, concurrency |
+| 06-async-in-test-automation.md | Missing await, promise not returned, false positive, parallel hazard, async isolation, flaky root causes, deterministic async |
+| 07-test-isolation-and-state-management.md | beforeEach/afterEach, shared state, factory, env separation |
+| 08-nodejs-environment-and-scripting.md | Node.js, modules, fs, env, CLI, npm scripts |
+| 09-automation-patterns-and-anti-patterns.md | POM, factory, utility, DRY, anti-patterns, QA focus |
+| 10-ci-cd-stability-principles.md | Deterministic tests, idempotency, flaky root causes, CI stability, env consistency, parallel safety |
+| isMutation.md | Mutation detection, test data safety |
+
+All documentation is aligned with the implementation structure and QA automation reliability goals.
 
 ---
 

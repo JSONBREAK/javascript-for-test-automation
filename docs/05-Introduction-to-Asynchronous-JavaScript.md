@@ -31,6 +31,20 @@ setTimeout(function () {
 }, 1000)
 ```
 
+// ตัวอย่าง callback async ที่ใช้ setTimeout
+function fetchData(callback) {
+  setTimeout(() => {
+    const data = "Sample Data"
+    callback(data)
+  }, 1000)
+}
+
+fetchData((data) => {
+  console.log("Received:", data)
+})
+// Output (หลัง 1 วินาที): "Received: Sample Data"
+```
+
 - ใช้กับ event, network, timer
 - ทำให้ code ไม่ block thread
 

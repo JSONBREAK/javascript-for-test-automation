@@ -27,9 +27,8 @@ The documentation evolves alongside implementation maturity.
 
 ## Structured Documentation Map
 
-```
-
 docs/
+```
 ├── 01-javascript-basics.md
 ├── 02-immutability.md
 ├── 03-data-handling.md
@@ -41,7 +40,6 @@ docs/
 └── 09-practical-debugging-and-ci-cd.md
 
 ```
-
 Each document represents a conceptual layer aligned with the implementation structure inside `src/.`
 
 Documentation is introduced and refined only when the corresponding engineering layer is sufficiently understood and implemented.

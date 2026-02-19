@@ -218,29 +218,41 @@ Async progression requires:
 - Ability to identify error types via stack traces
 
 ```
-    ├── src/                             
+    ├── src/
     │   ├── 01-javascript-basics/
-    │   │   ├── 01-variables.js
-    │   │   ├── 02-data-types.js
+    │   │   ├── 01-variables-and-scope.js
+    │   │   ├── 02-data-types-and-memory.js
     │   │   ├── 03-control-flow.js
     │   │   └── 04-functions.js
     │   ├── 02-immutability/
-    │   │   ├── 01-copy-patterns.js
-    │   │   └── 02-pure-functions.js
+    │   │   ├── 01-reference-vs-copy.js
+    │   │   ├── 02-shallow-vs-deep-copy.js
+    │   │   └── 03-pure-functions.js
     │   ├── 03-data-handling/
     │   │   ├── 01-array-methods.js
-    │   │   └── 02-object-handling.js
+    │   │   ├── 02-object-reshaping.js
+    │   │   └── 03-json-handling.js
     │   ├── 04-async/
+    │   │   ├── 01-callback-model.js
+    │   │   ├── 02-event-loop.js
+    │   │   ├── 03-promise-model.js
+    │   │   ├── 04-async-await.js
+    │   │   ├── 05-missing-await-trap.js
+    │   │   ├── 06-promise-all-concurrency.js
     │   │   └── README.md
-    │   └── exercises/ 
-    │       ├── practice-problems.md   
-    │       └── solve-problems.js    
+    │   └── example-etc/
+    │       ├── after-async.js
+    │       ├── after-async.md
+    │       ├── automation-qa-js-summary.md
+    │       ├── practice-problems.md
+    │       └── solve-problems.js
     ├── docs/
     │   ├── README.md
     │   ├── 01-javascript-basics.md
     │   ├── 02-immutability.md
     │   ├── 03-data-handling.md
-    │   └── 04-debugging-and-errors.md
+    │   ├── 04-debugging-and-errors.md
+    │   └── isMutation.md
     └── README.md
 ```
 
